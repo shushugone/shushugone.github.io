@@ -1,0 +1,83 @@
+:root{
+  --bg:#f7f5f0; --fg:#2f2c28; --muted:#8f8879; --line:#e6e0d4; --accent:#8a6f4d; --mark:#b49b72;
+}
+@media (prefers-color-scheme: dark){
+  :root{ --bg:#191817; --fg:#d6d2c8; --muted:#8c867a; --line:#302d29; --accent:#c9ab7d; --mark:#a08a63; }
+}
+*{box-sizing:border-box;}
+html{-webkit-text-size-adjust:100%;}
+body{
+  margin:0;background:var(--bg);color:var(--fg);
+  font-family:Georgia,"Times New Roman","Songti SC","Noto Serif SC","Source Han Serif SC",serif;
+  font-size:17px;line-height:1.95;
+}
+a{color:var(--accent);text-decoration:none;border-bottom:1px solid rgba(138,111,77,.28);}
+a:hover{border-bottom-color:var(--accent);}
+
+.bar{
+  position:sticky;top:0;z-index:9;
+  display:flex;justify-content:space-between;align-items:center;gap:1rem;
+  padding:.7rem 1.2rem;
+  background:color-mix(in srgb, var(--bg) 90%, transparent);
+  -webkit-backdrop-filter:saturate(1.2) blur(8px);
+  backdrop-filter:saturate(1.2) blur(8px);
+  border-bottom:1px solid var(--line);
+  font-size:.82rem;letter-spacing:.04em;color:var(--muted);
+  font-family:-apple-system,BlinkMacSystemFont,"PingFang SC",sans-serif;
+}
+.bar .home{color:var(--muted);border:none;}
+.bar .home:hover{color:var(--accent);}
+
+.page{max-width:41rem;margin:0 auto;padding:2.4rem 1.25rem 1.5rem;}
+.page h1{font-size:1.6rem;line-height:1.55;margin:0 0 1.6rem;font-weight:700;letter-spacing:.01em;}
+.page h2,.page h3,.page h4{font-size:1.08rem;font-weight:700;margin:2.4rem 0 .8rem;letter-spacing:.03em;}
+.page h4::before{
+  content:"";display:block;width:1.9rem;height:3px;border-radius:2px;
+  background:var(--mark);opacity:.65;margin-bottom:.6rem;
+}
+.page p{margin:0 0 1.15rem;text-align:justify;}
+.page strong{font-weight:700;}
+.page img{display:block;max-width:100%;max-height:34rem;width:auto;height:auto;margin:1.7rem auto;border-radius:8px;}
+.page ul,.page ol{padding-left:1.4rem;}
+.page blockquote{margin:1.3rem 0;padding:.2rem 1rem;border-left:3px solid var(--line);color:var(--muted);}
+
+.pager{
+  max-width:41rem;margin:1rem auto 0;padding:1.3rem 1.25rem 1rem;
+  display:flex;justify-content:space-between;gap:1rem;
+  border-top:1px solid var(--line);font-size:.92rem;
+}
+.pager a{max-width:48%;border:none;color:var(--fg);}
+.pager a:hover{color:var(--accent);}
+.pager .next{text-align:right;margin-left:auto;}
+.pager .label{display:block;font-size:.75rem;color:var(--muted);margin-bottom:.2rem;letter-spacing:.06em;}
+
+.foot{
+  max-width:41rem;margin:0 auto;padding:2.2rem 1.25rem 3.5rem;
+  font-size:.78rem;color:var(--muted);text-align:center;letter-spacing:.04em;
+}
+
+.toc{max-width:41rem;margin:0 auto;padding:2.6rem 1.25rem 1.5rem;}
+.toc h1{font-size:1.7rem;margin:0 0 .5rem;}
+.toc .sub{color:var(--muted);font-size:.95rem;margin:0 0 .4rem;}
+.toc .desc{color:var(--muted);font-size:.88rem;line-height:1.85;margin:1rem 0 1.2rem;}
+.toc h2{
+  font-size:.9rem;color:var(--muted);letter-spacing:.12em;font-weight:600;
+  margin:2.2rem 0 .8rem;border-bottom:1px solid var(--line);padding-bottom:.5rem;
+}
+.toc ol{list-style:none;margin:0;padding:0;}
+.toc li{margin:0;border-bottom:1px dashed var(--line);}
+.toc li a{display:flex;gap:.9rem;align-items:baseline;padding:.72rem .2rem;border:none;color:var(--fg);}
+.toc li a:hover{color:var(--accent);}
+.toc .no{
+  font-size:.8rem;color:var(--muted);min-width:3.6rem;letter-spacing:.05em;
+  font-family:-apple-system,BlinkMacSystemFont,"PingFang SC",sans-serif;
+}
+
+@media (max-width:640px){
+  body{font-size:16px;}
+  .page{padding:1.6rem 1rem 1rem;}
+  .page h1{font-size:1.35rem;}
+  .pager{flex-direction:column;gap:.6rem;}
+  .pager a{max-width:100%;}
+  .pager .next{text-align:left;margin-left:0;}
+}
